@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	
+	<title>Bear Frontend</title>
+	
+	<link rel="stylesheet" href="bear.css" />
+</head>
+<style>
+
+main, menu, nav, input#toggle-list,
+input#toggle-list + label[for="toggle-list"] {
+	transition: 0.5s;
+}
+
+menu {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: var(--menu-width);
+	overflow-y: scroll;
+	overflow-x: hidden;
+	letter-spacing: .5px;
+}
+
+nav {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	overflow-y: scroll;
+
+	background: var(--background);
+}
+
+input#toggle-list,
+input#toggle-list + label[for="toggle-list"] {
+	display: block;
+	position: fixed;
+	width: 100%;
+	z-index: 11;
+
+}
+
+main {
+	position: fixed;
+	width: 100%;
+}
+
+main {
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 10;
+	height: 100%;
+	padding: 30px;
+	background: var(--background);
+	border-left: 1px solid var(	--separator-color);
+}
+
+input#toggle-list { visibility:hidden; position: absolute; top: -9999px; }
+
+
+input#toggle-list:checked ~ #sidebar {
+	width: 100%;
+	left:  0;
+}
+	
+@media (min-width: 768px) {
+	main, input#toggle-list + label[for="toggle-list"] {
+		width: 100%;
+		left: var(--list-width);
+	}
+}
+
+@media (min-width: 768px) {
+	nav {
+		width: var(--list-width);
+	}
+}
+
+input#toggle-list:checked + label[for="toggle-list"] {
+	width: 100%;
+	left: 0;
+}
+
+input#toggle-list:checked + label[for="toggle-list"] .cerrar {
+	display: inline;
+}
+
+input#toggle-list:checked + label[for="toggle-list"] .abrir {
+	display: none;
+}
+
+		
+</style>
+<body>
+<input id="toggle-list" name="toggle-list" type="checkbox" value="" />
+<label for="toggle-list">&#9776;</label>
+
+<nav>
+<ul>
+	<li>Item 1</li>
+</ul>
+
+</nav>
+
+	<main id="sidebar">
+		<article>
+			<h2>test</h2>
+			<article>testing</article>
+		</article>
+	</main>
+
+
+	
+	<div>
+		
+		
+		<!--
+		## Reglas
+		
+		### Tamaños
+		
+		En móvil:
+		index -> aside (notas)
+		:slug -> article
+		
+		En tablet:
+		index + :slug = aside (notas) + article
+		
+		En desktop:
+		index + slug = aside (menu) + aside (notas) + article
+		
+		### JS/Non script:
+		
+		Links:
+		js: replace article and collapses note list/menu on click
+		ns: regular navigation
+		
+		hashtag:
+		js: filter list
+		ns: regular navigation ? / unfiltrable (nothing happens)
+		
+		menu link:
+		js: filters list
+		ns: regular navigation ? /unfiltrable (nothing happens)
+		
+		note loading:
+		js: paginated
+		ns: all at once ?
+		
+		image:
+		js: resizable
+		ns: regular image
+		
+		
+		
+		-->
+		</body>
+		</html>
