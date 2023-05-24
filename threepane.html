@@ -2,16 +2,29 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	
 	<title>Bear Frontend</title>
-	
 	<link rel="stylesheet" href="bear.css" />
 </head>
 <style>
 
-main, menu, nav, input#toggle-list,
+main, 
+menu, 
+nav, 
+input#toggle-list,
 input#toggle-list + label[for="toggle-list"] {
-	transition: 0.5s;
+	transition: 0.35s;
+}
+
+main {
+	position: fixed;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	z-index: 10;
+	height: 100%;
+	padding: 30px;
+	background: var(--background);
+	border-left: 1px solid var(	--separator-color);
 }
 
 menu {
@@ -34,7 +47,6 @@ nav {
 	bottom: 0;
 	width: 100%;
 	overflow-y: scroll;
-
 	background: var(--background);
 }
 
@@ -47,27 +59,18 @@ input#toggle-list + label[for="toggle-list"] {
 
 }
 
-main {
-	position: fixed;
-	width: 100%;
-}
-
-main {
-	overflow-x: hidden;
-	overflow-y: scroll;
-	z-index: 10;
-	height: 100%;
-	padding: 30px;
-	background: var(--background);
-	border-left: 1px solid var(	--separator-color);
-}
 
 input#toggle-list { visibility:hidden; position: absolute; top: -9999px; }
 
 
-input#toggle-list:checked ~ #sidebar {
+input#toggle-list:checked ~ main {
 	width: 100%;
 	left:  0;
+	border: 0;
+}
+
+input#toggle-list:checked ~ #overlay {
+	opacity: 0.75;
 }
 	
 @media (min-width: 768px) {
@@ -95,7 +98,6 @@ input#toggle-list:checked + label[for="toggle-list"] .cerrar {
 input#toggle-list:checked + label[for="toggle-list"] .abrir {
 	display: none;
 }
-
 		
 </style>
 <body>
@@ -106,19 +108,14 @@ input#toggle-list:checked + label[for="toggle-list"] .abrir {
 <ul>
 	<li>Item 1</li>
 </ul>
-
 </nav>
 
-	<main id="sidebar">
+	<main id="main">
 		<article>
 			<h2>test</h2>
 			<article>testing</article>
 		</article>
 	</main>
-
-
-	
-	<div>
 		
 		
 		<!--
