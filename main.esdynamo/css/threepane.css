@@ -1,11 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
-<head>
-	<meta charset="UTF-8">
-	<title>Bear Frontend</title>
-	<link rel="stylesheet" href="bear.css" />
-</head>
-<style>
+
 main, 
 menu, 
 nav {
@@ -107,14 +100,13 @@ input#checkbox-notes:checked ~ main {
 
 
 input#checkbox-notes:checked ~ nav {
-	margin-left: 0 !important;
+	//margin-left: 0 !important;
 }
 
 input#checkbox-menu:checked + label[for="checkbox-menu"],
 input#checkbox-menu:checked ~nav {
 	margin-left: var(--menu-width);
 }
-
 
 input#checkbox-menu:checked ~ main {
 	width:  calc(100% - var(--list-width) - var(--menu-width));
@@ -124,59 +116,8 @@ input#checkbox-menu:checked ~ main {
 input#checkbox-menu:checked ~ label[for="checkbox-notes"] {
 	margin-left: var(--menu-width);
 }
-		
-</style>
-<body>
-<input id="checkbox-menu" name="checkbox-menu" type="checkbox" value="" />
-<label id="toggle-menu" for="checkbox-menu">&#9776;</label>
 
-<input id="checkbox-notes" name="checkbox-notes" type="checkbox" value="" />
-<label id="toggle-notes" for="checkbox-notes">&#9776;</label>
-
-<menu></menu>
-<nav></nav>
-<main id="main"></main>
+input#checkbox-notes:checked ~ nav {
+	background: red !important;
+}
 		
-		
-		<!--
-		## Reglas
-		
-		### Tamaños
-		
-		En móvil:
-		index -> aside (notas)
-		:slug -> article
-		
-		En tablet:
-		index + :slug = aside (notas) + article
-		
-		En desktop:
-		index + slug = aside (menu) + aside (notas) + article
-		
-		### JS/Non script:
-		
-		Links:
-		js: replace article and collapses note list/menu on click
-		ns: regular navigation
-		
-		hashtag:
-		js: filter list
-		ns: regular navigation ? / unfiltrable (nothing happens)
-		
-		menu link:
-		js: filters list
-		ns: regular navigation ? /unfiltrable (nothing happens)
-		
-		note loading:
-		js: paginated
-		ns: all at once ?
-		
-		image:
-		js: resizable
-		ns: regular image
-		
-		
-		
-		-->
-		</body>
-		</html>
