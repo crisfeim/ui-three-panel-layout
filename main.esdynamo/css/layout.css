@@ -1,3 +1,4 @@
+
 /* Debug backgrounds */
 menu {background: red}
 nav  {background: yellow}
@@ -99,6 +100,11 @@ main {z-index: 3}
 	width: 100%;
 }
 
-* {
-	transition: 1s;
+menu,
+nav,
+main,
+#nav-toggle,
+#menu-toggle {
+	transition: 0.4s;
 }
+
