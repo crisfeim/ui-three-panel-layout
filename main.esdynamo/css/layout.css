@@ -25,19 +25,19 @@ main {z-index: 3}
 @media (min-width:768px) {
 	nav {
 		left: 0;
-		width: var(--list-width);
+		width: var(--nav-width);
 	}
 	
 	main {
-		left: var(--list-width);
-		width: calc(100% - var(--list-width));
+		left: var(--nav-width);
+		width: calc(100% - var(--nav-width));
 	}
 }
 
 @media (min-width:1200px) {
 	nav {left:  var(--menu-width);}
 	main {
-		left: calc(var(--menu-width) + var(--list-width));
-		width: calc(100% - var(--menu-width) - var(--list-width));
+		left: calc(var(--menu-width) + var(--nav-width));
+		width: calc(100% - var(--menu-width) - var(--nav-width));
 	}
 }

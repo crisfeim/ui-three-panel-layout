@@ -43,7 +43,7 @@
 	--search-background: #e2e2e2;
 
 	--menu-width: 230px;
-	--list-width: 320px;
+	--nav-width: 320px;
 	--navbar-height: 50px;
 	--menu-item-text-color: var(--note-table-cell-selected-color);
 	--menu-item-icon-color: var(--hashtag-background-color);
