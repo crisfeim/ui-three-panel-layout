@@ -98,3 +98,7 @@ main {z-index: 3}
 #nav-checkbox:checked ~ main {
 	width: 100%;
 }
+
+* {
+	transition: 1s;
+}
