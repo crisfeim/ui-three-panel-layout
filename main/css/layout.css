@@ -88,3 +88,13 @@ main {z-index: 3}
 		width: calc(100% - var(--nav-width));
 	}
 }
+
+
+#nav-checkbox:checked + #nav-toggle,
+#nav-checkbox:checked ~ main {
+	left: 0;
+}
+
+#nav-checkbox:checked ~ main {
+	width: 100%;
+}
