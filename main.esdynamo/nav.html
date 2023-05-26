@@ -6,6 +6,11 @@
 	<link rel="stylesheet" href="css/bear.css" />
 </head>
 <style>
+/* Glboal */
+nav {
+	padding-top: 24px;
+}
+
 main, 
 menu, 
 nav {
@@ -59,7 +64,6 @@ main {
 	z-index: 5;
 }
 
-nav, #toggle-menu,
 main, #toggle-nav  {
 	left:  100%;
 }
@@ -117,45 +121,13 @@ input#checkbox-nav { visibility:hidden; position: absolute; top: -9999px; }
 	main {
 		width: calc(100% - (var(--menu-width) + var(--list-width)));
 	}
-	
-	input#checkbox-menu:checked + #toggle-menu,
-	input#checkbox-menu:checked ~ nav {
-		left: 0 !important;
-	}
-	
-	input#checkbox-menu:checked ~ main,
-	input#checkbox-menu:checked ~ #toggle-nav {
-		left: var(--list-width) !important;
-	}
-	
-	input#checkbox-menu:checked ~ main {
-		width: calc(100% - var(--list-width)) !important;
-	}
 }
 
-/* Check logic */
-/* Check nav */
-input#checkbox-nav:checked + #toggle-nav {
-	left: 0 !important;
+input#checkbox-menu:checked + #toggle-menu,
+input#checkbox-menu:checked ~ nav {
+	left:  100%;
+	transform: 1s;
 }
-
-input#checkbox-nav:checked ~ main {
-	background: orange;
-	left: 0 !important;
-	width: 100% !important;
-}
-
-/* Check menu */
-input#checkbox-menu:checked ~ nav,
-input#checkbox-menu:checked + #toggle-menu {
-	left: var(--menu-width);
-}
-
-input#checkbox-menu:checked ~ main,
-input#checkbox-menu:checked ~ #toggle-nav {
-	left: calc(var(--menu-width) + var(--list-width));
-}
-
 
 </style>
 <body>
@@ -168,10 +140,10 @@ input#checkbox-menu:checked ~ #toggle-nav {
 <menu>
 	<li><a href="nav.html"/>Trashed</a></li>
 </menu>
-<nav></nav>
-<main id="main">
-	<!-- @include article -->
-</main>
+<nav>
+	<a href="detail.html">Detail</a>
+</nav>
+<main id="main"></main>
 		
 		
 		<!--
