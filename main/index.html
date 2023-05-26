@@ -13,15 +13,33 @@
 			main, nav, #menu-toggle, #nav-toggle {left: 100%}
 		}		
 		
+		/* Default behaviour (Mobile & tablet: has to push to reveal menu)*/
 		#menu-checkbox:checked + #menu-toggle,
 		#menu-checkbox:checked ~ nav {
 			left: var(--menu-width);
 		}
 		
+		#menu-checkbox:checked ~ #nav-toggle,
 		#menu-checkbox:checked ~ main {
 			left:  calc(var(--menu-width) + var(--nav-width));
 		}
-				
+		
+		/* Desktop behaviour: has to pull to hide itself*/
+		@media (min-width:1200px) {
+		#menu-checkbox:checked + #menu-toggle,
+			#menu-checkbox:checked ~ nav {
+				left: 0;
+			}
+			
+			#menu-checkbox:checked ~ #nav-toggle,
+			#menu-checkbox:checked ~ main {
+				left: var(--nav-width);
+			}
+			
+			#menu-checkbox:checked ~ main {
+				width: calc(100% - var(--nav-width));
+			}
+		}
 		</style>
 </head>
 <body>
