@@ -10,8 +10,18 @@
 	
 	<style>
 		@media (max-width:768px) {
-			main, nav {left: 100%}
+			main, nav, #menu-toggle, #nav-toggle {left: 100%}
+		}		
+		
+		#menu-checkbox:checked + #menu-toggle,
+		#menu-checkbox:checked ~ nav {
+			left: var(--menu-width);
 		}
+		
+		#menu-checkbox:checked ~ main {
+			left:  calc(var(--menu-width) + var(--nav-width));
+		}
+				
 		</style>
 </head>
 <body>

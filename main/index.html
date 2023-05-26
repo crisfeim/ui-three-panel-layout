@@ -10,16 +10,26 @@
 	
 	<style>
 		@media (max-width:768px) {
-			main, nav {left: 100%}
+			main, nav, #menu-toggle, #nav-toggle {left: 100%}
+		}		
+		
+		#menu-checkbox:checked + #menu-toggle,
+		#menu-checkbox:checked ~ nav {
+			left: var(--menu-width);
 		}
+		
+		#menu-checkbox:checked ~ main {
+			left:  calc(var(--menu-width) + var(--nav-width));
+		}
+				
 		</style>
 </head>
 <body>
 		<input id="menu-checkbox" name="menu-checkbox" type="checkbox" value=""/>
-		<label id="menu-toggle" for="menu-checkbox">&#9776;</label>
+		<label id="menu-toggle" for="menu-checkbox">&#9776; menu</label>
 	
 		<input id="nav-checkbox" name="nav-checkbox" type="checkbox" value="" />
-		<label id="nav-toggle" for="nav-checkbox">&#9776;</label>
+		<label id="nav-toggle" for="nav-checkbox">&#9776; nav</label>
 	
 	<menu><li><a href="nav.html">Link</a></li></menu>
 	<nav>		<ul>

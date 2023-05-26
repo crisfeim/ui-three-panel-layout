@@ -3,6 +3,7 @@ menu {background: red}
 nav  {background: yellow}
 main {background: green}
 
+menu, nav, main {padding: 30px}
 /* Position */
 menu, nav, main {
 	position: fixed;
@@ -16,28 +17,40 @@ menu {z-index: 1}
 nav  {z-index: 2}
 main {z-index: 3}
 
-#toggle-nav, #toggle-menu {
-	z-index: 4;
+#menu-toggle {
 	position: fixed;
 	left: 100%;
+	top: 0;
+	z-index: 3;
 }
-		
+
+#nav-toggle {
+	position: fixed;
+	left: 100%;
+	top: 0;
+	z-index: 4;
+}
+
 @media (min-width:768px) {
-	nav {
-		left: 0;
-		width: var(--nav-width);
+	nav, #menu-toggle {
+		left: 0px;
 	}
 	
-	main {
+	main, #nav-toggle {
 		left: var(--nav-width);
-		width: calc(100% - var(--nav-width));
 	}
+
+	nav {width: var(--nav-width);}
+	main {width: calc(100% - var(--nav-width));}
 }
 
 @media (min-width:1200px) {
-	nav {left:  var(--menu-width);}
-	main {
+	nav, #menu-toggle {left:  var(--menu-width);}
+	main, #nav-toggle {
 		left: calc(var(--menu-width) + var(--nav-width));
+	}
+	
+	main {
 		width: calc(100% - var(--menu-width) - var(--nav-width));
 	}
 }
