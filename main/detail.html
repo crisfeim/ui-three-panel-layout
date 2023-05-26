@@ -10,7 +10,7 @@
 	
 	<style>
 	@media (max-width:768px) {
-		#nav-toggle {
+		#nav-toggle, #menu-toggle {
 			left: 0;
 		}
 		#nav-checkbox:checked + #nav-toggle,
@@ -20,6 +20,10 @@
 		
 		#nav-checkbox:checked ~ #menu-toggle {
 			left: 0 !important;
+		}
+		
+		#menu-toggle:checked ~ nav {
+			left: 100% !important;
 		}
 	}
 	</style>
