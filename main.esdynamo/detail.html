@@ -9,10 +9,15 @@
 	<link rel="stylesheet" href="css/layout.css"/>
 	
 	<style>
-	main {
-		left: 0;
+	@media (max-width:768px) {
+		#nav-toggle {
+			left: 0;
+		}
+		#nav-checkbox:checked + #nav-toggle,
+		#nav-checkbox:checked ~ main {
+			left: 100%;
+		}
 	}
-
 	</style>
 </head>
 <body>

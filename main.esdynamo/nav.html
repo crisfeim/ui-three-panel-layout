@@ -10,6 +10,14 @@
 	<style>
 		@media (max-width:768px) {
 			main {left: 100%}
+			#menu-toggle {
+				left: 0;
+			}
+			
+			#menu-checkbox:checked + #menu-toggle,
+			#menu-checkbox:checked ~ nav {
+				left: 100% !important;
+			}
 		}
 	</style>
 </head>
