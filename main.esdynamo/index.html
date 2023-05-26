@@ -4,19 +4,172 @@
 	<meta charset="UTF-8">
 	<title>Bear Frontend</title>
 	<link rel="stylesheet" href="css/bear.css" />
-	<link rel="stylesheet" href="css/threepane.css" />
 </head>
-<style></style>
+<style>
+main, 
+menu, 
+nav {
+	transition: 0.35s;
+}
+
+menu {
+	z-index: 1;
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background: blue;
+}
+
+nav {
+	z-index: 2;
+	display: block;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	overflow-y: scroll;
+	background: red;
+}
+
+main {
+	z-index: 4;
+	position: fixed;
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height: 100%;
+	padding: 30px;
+	background: green;
+}
+
+#toggle-menu {
+	display: block;
+	position: fixed;
+	z-index: 3;
+}
+
+#toggle-nav {
+	display: block;
+	position: fixed;
+	z-index: 5;
+}
+
+nav, #toggle-menu,
+main, #toggle-nav  {
+	left:  100%;
+}
+
+
+/* Hide checboxes */
+input#checkbox-menu,
+input#checkbox-nav { visibility:hidden; position: absolute; top: -9999px; }
+
+/* Allow transitions on toggles when toggling */
+#toggle-nav,
+#toggle-menu {
+	transition: 0.35s;
+}
+
+
+/* @Tablet */	
+@media (min-width: 768px) {
+		
+	menu {
+		width: var(--menu-width);
+	}
+	
+	nav {
+		width: var(--list-width);
+	}
+	
+	nav, #toggle-menu {
+		left: 0;
+	}
+	
+	main {
+		width: calc(100% - var(--list-width));
+	}
+	
+	main, #toggle-nav {
+		left:  var(--list-width);
+	}
+		
+	#toggle-menu {
+		display: block;
+	}
+	
+}
+
+@media (min-width: 1200px) {
+	nav, #toggle-menu {
+		left: var(--menu-width);
+	}
+	
+	main, #toggle-nav {
+		left: calc(var(--menu-width) + var(--list-width));
+	}
+	
+	main {
+		width: calc(100% - (var(--menu-width) + var(--list-width)));
+	}
+	
+	input#checkbox-menu:checked + #toggle-menu,
+	input#checkbox-menu:checked ~ nav {
+		left: 0 !important;
+	}
+	
+	input#checkbox-menu:checked ~ main,
+	input#checkbox-menu:checked ~ #toggle-nav {
+		left: var(--list-width) !important;
+	}
+	
+	input#checkbox-menu:checked ~ main {
+		width: calc(100% - var(--list-width)) !important;
+	}
+}
+
+/* Check logic */
+/* Check nav */
+input#checkbox-nav:checked + #toggle-nav {
+	left: 0 !important;
+}
+
+input#checkbox-nav:checked ~ main {
+	background: orange;
+	left: 0 !important;
+	width: 100%;
+}
+
+/* Check menu */
+input#checkbox-menu:checked ~ nav,
+input#checkbox-menu:checked + #toggle-menu {
+	left: var(--menu-width);
+}
+
+input#checkbox-menu:checked ~ main,
+input#checkbox-menu:checked ~ #toggle-nav {
+	left: calc(var(--menu-width) + var(--list-width));
+}
+
+
+</style>
 <body>
 <input id="checkbox-menu" name="checkbox-menu" type="checkbox" value="" />
 <label id="toggle-menu" for="checkbox-menu">&#9776;</label>
 
-<input id="checkbox-notes" name="checkbox-notes" type="checkbox" value="" />
-<label id="toggle-notes" for="checkbox-notes">&#9776;</label>
+<input id="checkbox-nav" name="checkbox-nav" type="checkbox" value="" />
+<label id="toggle-nav" for="checkbox-nav">&#9776;</label>
 
 <menu></menu>
 <nav></nav>
-<main id="main"></main>
+<main id="main">
+	<!-- @include article -->
+</main>
 		
 		
 		<!--

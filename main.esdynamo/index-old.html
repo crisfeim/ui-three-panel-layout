@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Bear Frontend</title>
+	<link rel="stylesheet" href="css/bear.css" />
+	<link rel="stylesheet" href="css/threepane.css" />
+</head>
+<style></style>
+<body>
+<input id="checkbox-menu" name="checkbox-menu" type="checkbox" value="" />
+<label id="toggle-menu" for="checkbox-menu">&#9776;</label>
+
+<input id="checkbox-notes" name="checkbox-notes" type="checkbox" value="" />
+<label id="toggle-notes" for="checkbox-notes">&#9776;</label>
+
+<menu></menu>
+<nav></nav>
+<main id="main"></main>
+		
+		
+		<!--
+		## Reglas
+		
+		### Tamaños
+		
+		En móvil:
+		index -> aside (notas)
+		:slug -> article
+		
+		En tablet:
+		index + :slug = aside (notas) + article
+		
+		En desktop:
+		index + slug = aside (menu) + aside (notas) + article
+		
+		### JS/Non script:
+		
+		Links:
+		js: replace article and collapses note list/menu on click
+		ns: regular navigation
+		
+		hashtag:
+		js: filter list
+		ns: regular navigation ? / unfiltrable (nothing happens)
+		
+		menu link:
+		js: filters list
+		ns: regular navigation ? /unfiltrable (nothing happens)
+		
+		note loading:
+		js: paginated
+		ns: all at once ?
+		
+		image:
+		js: resizable
+		ns: regular image
+		
+		
+		
+		-->
+		</body>
+		</html>
