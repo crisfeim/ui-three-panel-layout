@@ -2,189 +2,28 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<title>Bear Frontend</title>
-	<link rel="stylesheet" href="css/bear.css" />
+	
+	<title></title>
+	
+	<link rel="stylesheet" href="css/bear.css"/>
+	<link rel="stylesheet" href="css/layout.css"/>
+	<style>
+		@media (max-width:768px) {
+			main {left: 100%}
+		}
+	</style>
 </head>
-<style>
-/* Glboal */
-nav {
-	padding-top: 24px;
-}
-
-main, 
-menu, 
-nav {
-	transition: 0.35s;
-}
-
-menu {
-	z-index: 1;
-	display: block;
-	position: fixed;
-	left: 0;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	background: yellow;
-}
-
-nav {
-	z-index: 2;
-	display: block;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	width: 100%;
-	overflow-y: scroll;
-	background: red;
-}
-
-main {
-	z-index: 4;
-	position: fixed;
-	width: 100%;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	height: 100%;
-	padding: 30px;
-	background: green;
-}
-
-#toggle-menu {
-	display: block;
-	position: fixed;
-	z-index: 3;
-}
-
-#toggle-nav {
-	display: block;
-	position: fixed;
-	z-index: 5;
-}
-
-main, #toggle-nav  {
-	left:  100%;
-}
-
-
-/* Hide checboxes */
-input#checkbox-menu,
-input#checkbox-nav { visibility:hidden; position: absolute; top: -9999px; }
-
-/* Allow transitions on toggles when toggling */
-#toggle-nav,
-#toggle-menu {
-	transition: 0.35s;
-}
-
-
-/* @Tablet */	
-@media (min-width: 768px) {
-		
-	menu {
-		width: var(--menu-width);
-	}
-	
-	nav {
-		width: var(--list-width);
-	}
-	
-	nav, #toggle-menu {
-		left: 0;
-	}
-	
-	main {
-		width: calc(100% - var(--list-width));
-	}
-	
-	main, #toggle-nav {
-		left:  var(--list-width);
-	}
-		
-	#toggle-menu {
-		display: block;
-	}
-	
-}
-
-@media (min-width: 1200px) {
-	nav, #toggle-menu {
-		left: var(--menu-width);
-	}
-	
-	main, #toggle-nav {
-		left: calc(var(--menu-width) + var(--list-width));
-	}
-	
-	main {
-		width: calc(100% - (var(--menu-width) + var(--list-width)));
-	}
-}
-
-input#checkbox-menu:checked + #toggle-menu,
-input#checkbox-menu:checked ~ nav {
-	left:  100%;
-	transform: 1s;
-}
-
-</style>
 <body>
-<input id="checkbox-menu" name="checkbox-menu" type="checkbox" value="" />
-<label id="toggle-menu" for="checkbox-menu">&#9776;</label>
-
-<input id="checkbox-nav" name="checkbox-nav" type="checkbox" value="" />
-<label id="toggle-nav" for="checkbox-nav">&#9776;</label>
-
-<menu>
-	<li><a href="nav.html"/>Trashed</a></li>
-</menu>
-<nav>
-	<a href="detail.html">Detail</a>
-</nav>
-<main id="main"></main>
-		
-		
-		<!--
-		## Reglas
-		
-		### Tamaños
-		
-		En móvil:
-		index -> aside (notas)
-		:slug -> article
-		
-		En tablet:
-		index + :slug = aside (notas) + article
-		
-		En desktop:
-		index + slug = aside (menu) + aside (notas) + article
-		
-		### JS/Non script:
-		
-		Links:
-		js: replace article and collapses note list/menu on click
-		ns: regular navigation
-		
-		hashtag:
-		js: filter list
-		ns: regular navigation ? / unfiltrable (nothing happens)
-		
-		menu link:
-		js: filters list
-		ns: regular navigation ? /unfiltrable (nothing happens)
-		
-		note loading:
-		js: paginated
-		ns: all at once ?
-		
-		image:
-		js: resizable
-		ns: regular image
-		
-		
-		
-		-->
-		</body>
-		</html>
+		<input id="menu-checkbox" name="menu-checkbox" type="checkbox" value=""/>
+		<label id="menu-toggle" for="menu-checkbox">&#9776;</label>
+	
+		<input id="nav-checkbox" name="nav-checkbox" type="checkbox" value="" />
+		<label id="nav-toggle" for="nav-checkbox">&#9776;</label>
+	
+	<menu><li><a href="nav.html">Link</a></li></menu>
+	<nav>		<ul>
+				<li><a href="detail.html">Detail</a></li>
+			</ul></nav>
+	<main></main>
+</body>
+</html>
